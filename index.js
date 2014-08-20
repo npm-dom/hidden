@@ -1,18 +1,7 @@
-/*global document*/
-var support = "hidden" in document.documentElement
-
-module.exports = support ? hidden : shim
-
-function hidden(elem, value) {
-    if (arguments.length === 1) {
-        return elem.hidden
-    }
-
-    elem.hidden = value
-}
+module.exports = shim
 
 function shim(elem, value) {
-    if (arguments.length === 1) {
+    if (value === undefined) {
         return elem.style.display === "none"
     }
 
