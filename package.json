@@ -4,30 +4,32 @@
   "description": "Cross browser Element#hidden",
   "keywords": [],
   "author": "Raynos <raynos2@gmail.com>",
-  "repository": "git://github.com/Colingo/hidden.git",
+  "repository": "git://github.com/npm-dom/hidden.git",
   "main": "index",
-  "homepage": "https://github.com/Colingo/hidden",
+  "homepage": "https://github.com/npm-dom/hidden",
   "contributors": [
     {
       "name": "Raynos"
     }
   ],
   "bugs": {
-    "url": "https://github.com/Colingo/hidden/issues",
+    "url": "https://github.com/npm-dom/hidden/issues",
     "email": "raynos2@gmail.com"
   },
   "dependencies": {},
   "devDependencies": {
-    "tap": "~0.3.1",
-    "browserify-server": "~2.1.10"
+    "browserify": "13.0.0",
+    "domify": "1.4.0",
+    "tape": "4.5.1",
+    "tape-run": "2.1.3"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "http://github.com/Colingo/hidden/raw/master/LICENSE"
+      "url": "http://github.com/npm-dom/hidden/raw/master/LICENSE"
     }
   ],
   "scripts": {
-    "test": "tap ./test"
+    "test": "browserify test.js | tape-run"
   }
 }
