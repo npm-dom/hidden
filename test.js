@@ -1,4 +1,5 @@
-var test = require('tape')
+var tape = require('tape')
+var test = require('tape-css')(tape)
 var domify = require('domify')
 var hidden = require('./')
 
@@ -25,4 +26,21 @@ test('Sets an element\'s hiddenness', function(t) {
 	t.notOk(hidden(el))
 
 	t.end()
+})
+
+test('Get original display property after hiding/showing an element', {
+    dom: document.createElement('div'),
+    styles: 'div { display: table; }',
+}, function(t) {
+    var el = document.querySelector('div')
+
+    hidden(el, true)
+    t.ok(hidden(el))
+
+    hidden(el, false)
+
+    t.equal(getComputedStyle(el).getPropertyValue('display'), 'table')
+    t.notOk(hidden(el))
+
+    t.end()
 })
