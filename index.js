@@ -5,5 +5,5 @@ function shim (element, value) {
         return element.style.display === 'none'
     }
 
-    element.style.display = (value || null) && 'none'
+    element.style.display = value ? 'none' : ''
 }
